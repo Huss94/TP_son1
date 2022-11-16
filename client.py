@@ -299,7 +299,7 @@ class array():
     """ array class, interfacing a Jupyter Notebook with a Mu32 array
     """
 
-    def __init__(self, type):
+    def __init__(self, type, displaying = True):
         """Constructor of the array class.
 
         Args:
@@ -322,7 +322,8 @@ class array():
             return
 
         # Actually display the corresponding gui in the Jupyter Notebook
-        display(self.gui.content)
+        if displaying:
+            display(self.gui.content)
 
     def validateAcq_fct(self, button):
         """Initialize the object allowing to connect to the remote server, and display the 
