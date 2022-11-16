@@ -1,0 +1,5 @@
+[35;21m2022-11-16 09:06:03,181 [0m[30;1m[ERROR]: [0m[31;21min mu32.log (core_ws.py:719): Stop running due to exception: [Errno 101] Network is unreachable.[0m
+[35;21m2022-11-16 09:14:07,802 [0m[30;1m[ERROR]: [0m[31;21min mu32.log (core_ws.py:719): Stop running due to exception: MuException:  [Listening command failed. Server 10.3.141.1:8002 said:  Connexion refused: Too many connections].[0m
+[35;21m2022-11-16 09:15:17,893 [0m[30;1m[ERROR]: [0m[31;21min mu32.log (core_ws.py:719): Stop running due to exception: MuException:  [Listening command failed. Server 10.3.141.1:8002 said:  Connexion refused: Too many connections].[0m
+[35;21m2022-11-16 09:15:40,983 [0m[30;1m[ERROR]: [0m[31;21min mu32.log (core_ws.py:719): Stop running due to exception: MuException:  [Listening command failed. Server 10.3.141.1:8002 said:  Connexion refused: Too many connections].[0m
+[35;21m2022-11-16 09:17:03,334 [0m[30;1m[ERROR]: [0m[31;21min mu32.log (core_ws.py:719): Stop running due to exception: sent 1011 (unexpected error) keepalive ping timeout; no close frame received.[0m
