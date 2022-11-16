@@ -58,16 +58,32 @@ def transform_h5_to_dict(path):
     dic['interspace'] = antenne.interspace
     return dic, antenne
 
-save_folder_of_h5files_as_dict("50cm_lateral")
+
+def fourier(x, Fs,i, mode = "modulus", K = None, newFig = 0,limaxis= (0,1000) ):
+    if newFig: 
+        plt.figure()
+    if K == None:
+        K = len(x)
+    freq = np.fft.fftfreq(K, 1/Fs)
+    sp = np.fft.fft(x, K)
+    if mode == "phase" or mode == "angle":
+        plt.title("Phase du signal")
+        plt.plot(np.fft.fftshift(freq), np.fft.fftshift(np.angle(sp)), label = i)
+        plt.ylabel=("Phase")
+    if mode == "modulus":
+        plt.title("Spectre du signal")
+
+        plt.plot(np.fft.fftshift(freq), np.fft.fftshift(np.abs(sp)), label = i)
+        plt.ylabel=("Module")
+
+    plt.xlabel=("frequence")
+    plt.xlim(limaxis)
+
+    return freq, sp
 
 
 
 
-
-
-    
-        
-antenne=array('play', displaying=False)
 
 
 
