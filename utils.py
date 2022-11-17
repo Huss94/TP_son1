@@ -22,7 +22,7 @@ def save_folder_of_h5files_as_dict(folder_path, save_destination = "matrices"):
     
     paths= glob.glob(folder_path + '/*.h5')
     for path in paths:
-        dict_to_save, _ = transform_h5_to_dict(path)
+        dict_to_save = load_antenne(path, return_dic=True)
 
         index = path[::-1].index('/')
         name = path[len(path) - index : -3]
@@ -32,7 +32,7 @@ def save_folder_of_h5files_as_dict(folder_path, save_destination = "matrices"):
 
     print("Finished")
 
-def transform_h5_to_dict(path):
+def load_antenne(path, return_dic = False):
     """
     retourne l'antenne du fichier h5 ainsi qu'un dicitonnaire reprenant ses info importante
     """
@@ -47,16 +47,20 @@ def transform_h5_to_dict(path):
     antenne.play_fct(button = None)
     time.sleep(0.1)
     antenne.stopplay_fct(button = None)
-    m = antenne.read()
 
-    dic = {}
+    if return_dic:   
+        m = antenne.read()
 
-    dic['mat'] = m
-    dic['fs'] = antenne.fs
-    dic['blocksize'] = antenne.blocksize
-    dic['N'] = antenne.mems_nb
-    dic['interspace'] = antenne.interspace
-    return dic, antenne
+        dic = {}
+
+        dic['mat'] = m
+        dic['fs'] = antenne.fs
+        dic['blocksize'] = antenne.blocksize
+        dic['N'] = antenne.mems_nb
+        dic['interspace'] = antenne.interspace
+        return dic
+    else:
+        return antenne
 
 
 def fourier(x, Fs,i, mode = "modulus", K = None, newFig = 0,limaxis= (0,1000) ):
