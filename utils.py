@@ -73,14 +73,14 @@ def fourier(x, Fs,i, mode = "modulus", K = None, newFig = 0,limaxis= (0,1000) ):
     if mode == "phase" or mode == "angle":
         plt.title("Phase du signal")
         plt.plot(np.fft.fftshift(freq), np.fft.fftshift(np.angle(sp)), label = i)
-        plt.ylabel=("Phase")
+        plt.ylabel("Phase")
     if mode == "modulus":
         plt.title("Spectre du signal")
 
         plt.plot(np.fft.fftshift(freq), np.fft.fftshift(np.abs(sp)), label = i)
-        plt.ylabel=("Module")
+        plt.ylabel("Module")
 
-    plt.xlabel=("frequence")
+    plt.xlabel("frequence")
     plt.xlim(limaxis)
 
     return freq, sp
